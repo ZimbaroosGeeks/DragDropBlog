@@ -1,0 +1,23 @@
+<div><a routerLink="/One">Route Page One</a></div>
+
+<p>page-two works!</p>
+<p>
+  X =
+  {{ dataValues.xPos }}
+</p>
+<p>
+  Y =
+  {{ dataValues.yPos }}
+</p>
+
+<p class="narrow">
+  These input boxes are to simulate reading the position of the box from a file.
+  If you don't hit the save button here, the square will be back in the position
+  it started in on page one prior to you dragging it.
+  <br />
+  If you put new values in here and save, the square will be located at that
+  left, top position when you go back to page one.
+</p>
+<input #textbox type="number" [(ngModel)]="xValue" required />
+<input #textbox type="number" [(ngModel)]="yValue" required />
+<button (click)="saveValues()">Save</button>

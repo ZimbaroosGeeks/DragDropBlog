@@ -1,0 +1,33 @@
+<h1>Drag items</h1>
+<a routerLink="/Two">Page Two</a>
+
+<!-- Create the list of times that can be dragged in the list only -->
+<!-- Dragging items in this list can cause them to change order -->
+<div
+  class="shuffle"
+  cdkDropList
+  [cdkDropListData]="divList"
+  (cdkDropListDropped)="onDivDrop($event)"
+  cdkDropListOrientation="horizontal"
+>
+  <div
+    *ngFor="let myDiv of divList"
+    style="width: 100px; height: 100px"
+    [style.background-color]="myDiv.color"
+    cdkDrag
+    (cdkDropListDropped)="onDivDrop($event)"
+  >
+    {{ myDiv.title }}
+  </div>
+</div>
+
+<!-- This item can be dragged any where on the web page. -->
+<div
+  class="freedom"
+  cdkDrag
+  (mouseup)="saveMe($event)"
+  [style.top]="getTop()"
+  [style.left]="getLeft()"
+>
+  I can go anywhere...
+</div>
